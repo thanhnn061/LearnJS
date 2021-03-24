@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<style>
+    .sub-menu {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<body>
+    <ul id="menu">
+        <li class="menu-item">Home</li>
+        <li class="menu-item has-sub">
+            <a href="#">About</a>
+            <ul class="sub-menu">
+                <li class="menu-item">From 2010</li>
+                <li class="menu-item">Vision</li>
+            </ul>
+        </li>
+        <li class="menu-item has-sub">
+            <a href="#">Product</a>
+            <ul class="sub-menu">
+                <li class="menu-item">Clothes</li>
+                <li class="menu-item">Shirts</li>
+                <li class="menu-item">Phones</li>
+            </ul>
+        </li>
+        <li class="menu-item has-sub">
+            <a href="#">Blog</a>
+            <ul class="sub-menu">
+                <li class="menu-item">New Arrival</li>
+                <li class="menu-item">Look books</li>
+            </ul>
+        </li>
+        <li class="menu-item">FAQ</li>
+        <li class="menu-item">Contact</li>
+    </ul>
+
+    <script>
+        $('.has-sub a').on('click', (e) => {
+            e.preventDefault();
+
+            $('.sub-menu').each((index, elem) => {
+                $(elem).addClass('hidden');
+                $(elem).removeClass('show');
+            });
+
+
+            let currentSubMenuItem = $(e.target).parent().find(".sub-menu");
+            if (currentSubMenuItem.hasClass('show')) {
+                $(currentSubMenuItem).removeClass('show');
+                $(currentSubMenuItem).addClass('hidden');
+            } else {
+                $(currentSubMenuItem).removeClass('hidden');
+                $(currentSubMenuItem).addClass('show');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+</head>
+
+<body>
+    <div>
+        <label>Nhập bán kính hình tròn (phải là số):</label>
+        <input type="text" id="r" />
+        </br>
+        <p>Diện tích hình tròn: <span id="result"></span></p>
+    </div>
+
+    <script>
+        // select tới thẻ input nhập bán kính
+        let rElement = document.querySelector('input');
+
+        // bắt sự kiện thay đổi nội dung ô input
+        rElement.addEventListener('change', (e) => {
+            // lấy giá trị ô input và cast nó sang kiểu số
+            let r = +e.target.value
+            // tính diện tích hình tròn
+            let s = Math.pow(r, 2) * 3.14;
+
+            // gán kết quả tính đc cho thẻ span có id là result
+            document.getElementById('result').textContent = s;
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="firstName">firstName</label>
+        <input type="text" id="firstName" name="firstName">
+
+        <label for="lastName">lastName</label>
+        <input type="text" id="lastName" name="lastName">
+
+        <label for="age">age</label>
+        <input type="text" id="age" name="age">
+
+        <label for="gender">gender</label>
+        <input type="text" id="gender" name="gender">
+
+        <input type="submit" value="Add Student" id="submit" />
+    </form>
+    <script>
+        var listStudent = [];
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+
+            let student = {
+                firstName: firstName,
+                lastName: lastName,
+                fullName: firstName + ' ' + lastName,
+                age: age,
+                gender: gender
+            };
+
+            listStudent.push(student);
+
+            console.log('List Student', listStudent);
+        });
+    </script>
+</body>
+
+</html>

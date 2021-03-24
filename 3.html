@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+
+<body>
+    <div>
+        <label>Nhập ngày (Format: Y-m-d H:i:s):</label>
+        <input type="text" id="date" />
+        </br>
+        <label>Nhập số ngày bị trừ hoặc cộng:</label>
+        <input type="text" id="b" />
+        </br>
+        <input type="submit" value="Xác nhận" id="submit" />
+        <p>Kết quả cộng: <span id="resultAdd"></span></p>
+        <p>Kết quả trừ: <span id="resultSub"></span></p>
+    </div>
+
+    <script>
+        let rElement = document.querySelector('#submit');
+
+        rElement.addEventListener('click', (e) => {
+
+            let date = document.getElementById('date').value;
+            let b = +document.getElementById('b').value;
+            let dateVal = new Date(date);
+
+            let resultAdd = dateVal.setDate(dateVal.getDate() + b);
+            dateVal = new Date(date);
+            let resultSub = dateVal.setDate(dateVal.getDate() - b);
+
+            // gán kết quả tính đc cho thẻ span có id là result
+            document.getElementById('resultAdd').textContent = formatDate(resultAdd);
+            document.getElementById('resultSub').textContent = formatDate(resultSub);
+        });
+
+        const formatDate = (input) => {
+            const day = new Date(input);
+            const year = day.getFullYear();
+            const month = day.getMonth();
+            const date = day.getDate();
+            const hour = day.getHours();
+            const min = day.getMinutes();
+            const sec = day.getSeconds();
+            return year + "-" + month + "-" + date + " " + hour + ":" + min + ":" + sec;
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8</title>
+</head>
+<style>
+    #slide img {
+        display: none;
+        width: 600px;
+        height: 600px;
+        object-fit: cover;
+    }
+
+    #slide #img1 {
+        display: block;
+    }
+</style>
+
+<body>
+    <div id="slide">
+    </div>
+    <button id="previous" onclick="onClickPrevious()">Previous</button>
+    <button id="next" onclick="onClickNext()">Next</button>
+
+    <script>
+        var images = [
+            "https://sites.google.com/site/hinhanhdep24h/_/rsrc/1436687439788/home/hinh%20anh%20thien%20nhien%20dep%202015%20%281%29.jpeg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf46SZ1O4z219cSuYQfa1pggJ15dUQo5iVsw&usqp=CAU",
+            "https://lh6.googleusercontent.com/proxy/VxC5QWMXdNNzOoEcentOmSyyvqcetWUI_I6goprXrFlv9wli1VkiCln_69FEzvmK2V2Ba0VgjCIUo4Zh5WXidXJQJbCNe6aQKw=s0-d",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvsMPOegn3hXtINvgSr0-gjUEiBrfv0tZxw&usqp=CAU"
+        ];
+
+        for (let index = 0; index < images.length; index++) {
+            const image = images[index];
+            let img = document.createElement("img");
+            img.setAttribute("id", 'img' + (index + 1));
+            img.setAttribute("src", image);
+            document.getElementById('slide').appendChild(img);
+        }
+
+        var currentImg = 1;
+
+        onClickPrevious = () => {
+            if (currentImg == 1) return;
+
+            controlImg(currentImg, 0);
+            currentImg--;
+            controlImg(currentImg, 1);
+        };
+
+        onClickNext = () => {
+            if (currentImg == 4) {
+                controlImg(currentImg, 0);
+                currentImg = 1;
+                controlImg(currentImg, 1);
+            } else {
+                controlImg(currentImg, 0);
+                currentImg++;
+                controlImg(currentImg, 1);
+            }
+
+        };
+
+        controlImg = (index, status) => {
+            switch (index) {
+                case 1:
+                    document.getElementById('img1').style.display = status ? "block" : "none"; // 1: block, 0: none
+                    break;
+                case 2:
+                    document.getElementById('img2').style.display = status ? "block" : "none"; // 1: block, 0: none
+                    break;
+                case 3:
+                    document.getElementById('img3').style.display = status ? "block" : "none"; // 1: block, 0: none
+                    break;
+                case 4:
+                    document.getElementById('img4').style.display = status ? "block" : "none"; // 1: block, 0: none
+                    break;
+            }
+        };
+    </script>
+</body>
+
+</html>

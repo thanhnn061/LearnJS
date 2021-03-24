@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+</head>
+
+<body>
+    <div>
+        <textarea cols="30" rows="10"></textarea>
+    </div>
+
+    <script>
+
+        let rElement = document.querySelector('textarea');
+
+        // Function sẽ chạy khi người dùng gõ xong nội dung và blur khỏi ô textarea
+        rElement.addEventListener('change', (e) => {
+            let input = e.target.value;
+            if (input.length > 50) {
+                alert("Quá 50 kí tự!");
+            }
+        });
+
+        // Function sẽ chạy khi người dùng gõ phím
+        rElement.addEventListener('keypress', (e) => {
+            let input = e.target.value;
+            if (input.length > 50) {
+                alert("Quá 50 kí tự!");
+            }
+        });
+    </script>
+</body>
+
+</html>
