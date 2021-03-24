@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+	<title>6</title>
+</head>
+<body>
+	<div>
+        <form action="#"  >
+            <label for="countrySearch:"> CountrySearch</label>
+            <br/>
+            <input type="text" id="text" name="text" />
+            <br/>
+            <button type="button" id="submit"  >Xác nhận</button>          
+        
+        </form>
+       <div id="result">
+
+       </div>
+    </div>
+    <script>
+        
+        $('#text').on('change', function(){
+            $("#result").html();
+           var count =  $(this).val().length;
+           console.log(count);
+           if (count > 1){
+        
+       $('#submit').on('click', function()
+        {
+            var valueInput = $('#text').val();
+            var rElement='';
+            $.ajax({
+                url: "bai11.php", 
+                type: "post",
+                dataType: 'json',
+                data: {value: valueInput},
+                success: function(result){
+
+                    $("#result").html("");
+                    $.each(result , function( index, value ) {
+                        var value1 = '<span style = "color:red ">'+valueInput+'</span>';
+                        var r = value.replace(valueInput, value1);
+                        rElement += r +'<br/> ';
+                    });
+                    console.log(rElement);
+                    $("#result").html(rElement);                       
+                    // var myArray = jQuery.parseJSON(result);         
+                }
+            });
+        }); 
+        
+           }
+
+        });
+      
+    </script>
+
+</body>
+</html>

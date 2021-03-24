@@ -39,16 +39,16 @@
             document.getElementById('resultSub').textContent = formatDate(resultSub);
         });
 
-        const formatDate = (input) => {
-            const day = new Date(input);
-            const year = day.getFullYear();
-            const month = day.getMonth();
-            const date = day.getDate();
-            const hour = day.getHours();
-            const min = day.getMinutes();
-            const sec = day.getSeconds();
-            return year + "-" + month + "-" + date + " " + hour + ":" + min + ":" + sec;
-        };
+            const formatDate = (input) => {
+                const day = new Date(input);
+                const year = day.getFullYear();
+                const month = day.getMonth();
+                const date = day.getDate();
+                const hour = day.getHours();
+                const min = day.getMinutes();
+                const sec = day.getSeconds();
+                return year + "-" + month + "-" + date + " " + hour + ":" + min + ":" + sec;
+            };
 
     </script>
 </body>

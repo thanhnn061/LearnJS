@@ -28,10 +28,10 @@
         var listStudent = [];
         document.querySelector('form').addEventListener('submit', (e) => {
             e.preventDefault();
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const age = document.getElementById('age').value;
-            const gender = document.getElementById('gender').value;
+            let firstName = document.getElementById('firstName').value;
+            let lastName = document.getElementById('lastName').value;
+            let age = document.getElementById('age').value;
+            let gender = document.getElementById('gender').value;
 
             let student = {
                 firstName: firstName,
